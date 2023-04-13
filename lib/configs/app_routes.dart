@@ -5,8 +5,7 @@ import 'package:pertemuan_v/modules/news_detail_screen/news_detail_screen.dart';
 import 'package:pertemuan_v/modules/splash_screen/splash_screen.dart';
 
 import '../models/user.dart';
-import '../modul/news_detail/news_detail_screen.dart';
-import '../modul/splashscreen/splash_screen.dart';
+
 
 class AppRoutes {
   static const String splash = "splash";
