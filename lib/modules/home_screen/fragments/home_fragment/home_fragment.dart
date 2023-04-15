@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pertemuan_v/models/user.dart';
+import 'package:pertemuan_v/models/news.dart';
 import 'package:pertemuan_v/modules/home_screen/fragments/home_fragment/home_fragment_widgets.dart';
-
-// import 'home_fragment_widgets.dart';
 
 class HomeFragment extends StatefulWidget {
   const HomeFragment({
     super.key,
     required this.user,
+    required this.hotesNews,
+    required this.latesNews,
     required this.homeScaffold,
   });
+
   final User user;
+
+  final News hotesNews;
+  final List<News> latesNews;
   final GlobalKey<ScaffoldState> homeScaffold;
 
   @override
@@ -72,8 +77,10 @@ class _HomeFragmentState extends State<HomeFragment> {
                     ),
                     child: HomeFragmentWidget.hotestNewsCard(
                       size,
-                      "https://picsum.photos/1080/690",
-                      "Lebaran Sebentar Lagi",
+                      // todo: add hotesNews && List<News> latesNews
+                      widget.hotesNews
+                          .imageUrl, //"https://picsum.photos/1080/690",
+                      widget.hotesNews.title, //"Selamat Menempuh Hari Lebaran",
                     ),
                   ),
                   const SizedBox(
@@ -93,8 +100,9 @@ class _HomeFragmentState extends State<HomeFragment> {
                       horizontal: 16,
                     ),
                     child: HomeFragmentWidget.latestNewsSection(
-                      size,
-                    ),
+                        size, widget.latesNews
+                        /* new: add list lates-news */
+                        ),
                   ),
                 ],
               ),
